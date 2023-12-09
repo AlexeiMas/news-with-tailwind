@@ -1,10 +1,13 @@
-const AuthButtons = () => {
+import {HTMLAttributes} from "react";
+
+interface IAuthButtonsProps extends Pick<HTMLAttributes<HTMLUListElement>, "className"> {
+}
+
+const AuthButtons = ({className}: IAuthButtonsProps) => {
   return (
-    <ul className="inline-flex items-center gap-2 ml-2">
+    <ul className={`inline-flex items-center gap-2 ml-2 ${className}`}>
       <li>
-        <button
-          className="header-btn delay-150">Login
-        </button>
+        <button className="header-btn delay-150">Login</button>
       </li>
       <li>
         <button

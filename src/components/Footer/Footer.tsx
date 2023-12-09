@@ -1,4 +1,4 @@
-import {CompanyBlock, ContactUsBlock, ContentBlock} from "@/components/Footer/index.ts";
+import {CompanyBlock, ContactUsBlock, ContentBlock} from "@/components/Footer/index";
 
 const Footer = () => {
   return (

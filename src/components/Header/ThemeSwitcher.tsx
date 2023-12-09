@@ -1,4 +1,4 @@
-import {useColorTheme} from "@/helpers/hooks/useColorTheme.ts";
+import {useColorTheme} from "@/helpers/hooks/useColorTheme";
 
 const ThemeSwitcher = () => {
   const {theme, toggleTheme} = useColorTheme();

@@ -1,8 +1,20 @@
-const MenuNavigation = () => {
+import {HTMLAttributes} from "react";
+import {useLocation} from "react-router-dom";
+import cn from "classnames";
+import {ERouteConstants} from "@/routes/constants.ts";
+
+interface IMenuNavigationProps extends Pick<HTMLAttributes<HTMLUListElement>, "className"> {
+}
+
+const MenuNavigation = ({className}: IMenuNavigationProps) => {
+  const {pathname} = useLocation();
+
   return (
-    <ul className="inline-flex items-center">
+    <ul className={`inline-flex items-center ${className}`}>
       <li>
-        <a className="header-link" href="#">Home</a>
+        <a
+          className={cn("header-link", {"dark:text-purple-300 text-purple-800": pathname === ERouteConstants.HomePage})}
+          href="#">Home</a>
       </li>
       <li>
         <a className="header-link" href="#">About</a>
