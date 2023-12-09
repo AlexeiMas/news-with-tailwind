@@ -17,4 +17,6 @@ export const routes = createBrowserRouter([
       }
     ]
   }
-]);
+], {
+  basename: "/news-with-tailwind"
+});
