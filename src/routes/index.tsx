@@ -18,5 +18,5 @@ export const routes = createBrowserRouter([
     ]
   }
 ], {
-  basename: "/news-with-tailwind"
+  basename: import.meta.env.BASE_URL
 });
