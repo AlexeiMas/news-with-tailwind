@@ -25,4 +25,6 @@ const ImageSkeleton = ({watermark = true, className}: TImageSkeletonProps) => {
   );
 };
 
+ImageSkeleton.displayName = "ImageSkeleton";
+
 export default ImageSkeleton;

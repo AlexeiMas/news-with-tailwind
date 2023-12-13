@@ -1,8 +1,7 @@
 {
   "name": "tailwind-practice",
   "private": true,
-  "version": "0.0.0",
-  "homepage": "https://alexeimas.github.io/news-with-tailwind",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

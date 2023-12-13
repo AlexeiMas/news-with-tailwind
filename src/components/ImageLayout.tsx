@@ -1,4 +1,4 @@
-import {HTMLAttributes, ReactElement} from "react";
+import {FunctionComponent, HTMLAttributes, ReactElement} from "react";
 import cn from "classnames";
 import ImageSkeleton from "./Skeleton/ImageSkeleton.tsx";
 import {useImageLoaded} from "@/helpers/hooks/useImageLoaded.ts";
@@ -9,6 +9,10 @@ interface IImageLayoutProps extends Pick<HTMLAttributes<HTMLImageElement>, "clas
   children: ReactElement<typeof ImageSkeleton>;
 }
 
+interface IMyFunctionComponent<P = {}> extends FunctionComponent<P> {
+  displayName?: string;
+}
+
 const ImageLayout = ({imgSrc, imgAlt, className, children}: IImageLayoutProps) => {
   const {isImageLoaded, onLoadHandler} = useImageLoaded();
 
@@ -16,7 +20,10 @@ const ImageLayout = ({imgSrc, imgAlt, className, children}: IImageLayoutProps) =
     throw new Error("Must be just one children element.");
   }
 
-  if ((typeof children.type === "string") || (typeof children.type === "function" && children.type.name !== "ImageSkeleton")) {
+  if (
+    (typeof children.type === "string") ||
+    (typeof children.type === "function" && (children.type as IMyFunctionComponent).displayName !== "ImageSkeleton")
+  ) {
     throw new Error("Received not compatible element.");
   }
 
