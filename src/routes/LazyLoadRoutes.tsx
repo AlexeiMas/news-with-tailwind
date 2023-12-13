@@ -1,13 +1,11 @@
-import {ERouteConstants} from "@/routes/constants.ts";
-import {lazy, Suspense} from "react";
+import {Suspense} from "react";
 import {Spinner} from "@/components/Loader";
+import {Outlet} from "react-router-dom";
 
-export const lazyLoadRoutes = (componentName: keyof typeof ERouteConstants) => {
-  const LazyElement = lazy(() => import(import.meta.env.MODE === 'development' ? `../pages/${componentName}.tsx` : `../src/pages/${componentName}.tsx`));
-
+export const LazyLoadRoutes = () => {
   return (
     <Suspense fallback={<Spinner/>}>
-      <LazyElement/>
+      <Outlet/>
     </Suspense>
   );
 };

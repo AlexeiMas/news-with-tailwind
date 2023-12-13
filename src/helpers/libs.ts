@@ -72,3 +72,10 @@ export const generateSlug = (title: string, publishedAt: string) => {
 
   return encodeURI(concatenatedString);
 };
+
+export const scrollToTopPage = (behavior: ScrollBehavior = "smooth") => {
+  window.scrollTo({
+    top: 0,
+    behavior,
+  });
+};

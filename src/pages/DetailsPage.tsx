@@ -7,6 +7,7 @@ import ImageLayout from "@/components/ImageLayout.tsx";
 import RecentUpdatesSection from "@/components/RecentUpdates/RecentUpdatesSection.tsx";
 import ListNews from "@/components/RecentUpdates/ListNews.tsx";
 import {useShallow} from "zustand/react/shallow";
+import ScrollToTop from "@/components/ScrollToTop.tsx";
 
 const DetailsPage = () => {
   const {pathname} = useLocation();
@@ -22,6 +23,7 @@ const DetailsPage = () => {
 
   return (
     <div>
+      <ScrollToTop behavior={"instant"}/>
       <div className="grid lg:grid-cols-[50%_auto] gap-2">
         <ImageLayout
           imgSrc={detailsInfoByTitle.urlToImage}

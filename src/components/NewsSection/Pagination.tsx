@@ -1,6 +1,6 @@
 import {useMemo} from "react";
 import cn from "classnames";
-import {paginationResolver} from "@/helpers/libs";
+import {paginationResolver, scrollToTopPage} from "@/helpers/libs";
 
 interface IPaginationProps {
   currentPage: number;
@@ -28,7 +28,7 @@ const Pagination = (
 
   const onPageChangeCB = (page: number) => {
     onPageChange(page);
-    window.scrollTo({top: 0, left: 0, behavior: "smooth"});
+    scrollToTopPage()
   };
 
   return (

@@ -1,18 +1,11 @@
 import {ButtonHTMLAttributes, useEffect, useState} from "react";
+import {scrollToTopPage} from "@/helpers/libs.ts";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  // Add any additional props you want to pass
-  // ...
 }
 
 const ButtonTop = ({...props}: ButtonProps) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
 
   const handleScroll = () => {
     // Show the button when the user has scrolled down 120% of the screen height
@@ -31,7 +24,7 @@ const ButtonTop = ({...props}: ButtonProps) => {
   return (
     <button
       className={`fixed bottom-5 right-5 bg-blue-500 hover:bg-blue-700 text-white font-bold p-4 rounded-full transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-      onClick={scrollToTop}
+      onClick={scrollToTopPage}
       {...props}
     >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"

@@ -1,19 +1,42 @@
 import {createBrowserRouter} from "react-router-dom";
 import MainLayout from "@/layouts/MainLayout";
 import {ERouteConstants} from "@/routes/constants";
-import {lazyLoadRoutes} from "@/routes/LazyLoadRoutes";
+import {lazy} from "react";
+import {LazyLoadRoutes} from "@/routes/LazyLoadRoutes.tsx";
+
+const HomePage = lazy(() => import("../pages/HomePage"));
+const DetailsPage = lazy(() => import("../pages/DetailsPage"));
 
 export const routes = createBrowserRouter([
   {
     element: <MainLayout/>,
     children: [
       {
-        path: ERouteConstants.HomePage,
-        element: lazyLoadRoutes("HomePage")
-      },
-      {
-        path: ERouteConstants.DetailsPage,
-        element: lazyLoadRoutes("DetailsPage")
+        element: <LazyLoadRoutes/>,
+        children: [
+          {
+            path: ERouteConstants.HomePage,
+            element: <HomePage/>
+            // async lazy() {
+            //   const {HomePage} = await import(`@/pages/HomePage`);
+            //   return {
+            //     loader: Spinner,
+            //     Component: HomePage,
+            //   };
+            // }
+          },
+          {
+            path: ERouteConstants.DetailsPage,
+            element: <DetailsPage/>
+            // async lazy() {
+            //   const {DetailsPage} = await import("@/pages/DetailsPage");
+            //   return {
+            //     loader: Spinner,
+            //     Component: DetailsPage
+            //   };
+            // }
+          }
+        ]
       }
     ]
   }
