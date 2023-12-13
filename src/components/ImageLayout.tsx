@@ -21,6 +21,7 @@ const ImageLayout = ({imgSrc, imgAlt, className, children}: IImageLayoutProps) =
   }
 
   if (
+    !import.meta.env.PROD &&
     (typeof children.type === "string") ||
     (typeof children.type === "function" && (children.type as IMyFunctionComponent).displayName !== "ImageSkeleton")
   ) {
