@@ -20,7 +20,7 @@ const NewsSection = () => {
   };
 
   useEffect(() => {
-    if (data) {
+    if (data && data.articles) {
       setNews(data.articles);
     }
   }, [data, setNews]);
