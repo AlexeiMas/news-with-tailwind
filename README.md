@@ -1,27 +1,22 @@
-# React + TypeScript + Vite
+# React + React Query + Zustand + TypeScript + TailwindCSS + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This app is for looking through news, with lazy loading, skeleton, pagination, routing, dark theme support.
 
-Currently, two official plugins are available:
+React Query is used for receiving data from API, Zustand - as state manager. 
+TailwindCSS is used for stylization components and dark theme.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Application is available by link: https://alexeimas.github.io/news-with-tailwind
 
-## Expanding the ESLint configuration
+***
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Get started
 
-- Configure the top-level `parserOptions` property like this:
+Create file in root directory `.env.local` by boilerplate `.env` file
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+Install mandatory dependencies:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+> yarn install
+
+After installation, run client application, proceed to command below:
+
+> yarn run dev

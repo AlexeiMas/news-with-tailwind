@@ -3,6 +3,7 @@ export type TNewsData = {
   status: EStatus
   totalResults: number
   message?: string
+  code?: string
 }
 
 export type TArticles = {

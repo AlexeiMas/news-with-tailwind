@@ -1,5 +1,5 @@
 import {HTMLAttributes} from "react";
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import cn from "classnames";
 import {ERouteConstants} from "@/routes/constants.ts";
 
@@ -12,15 +12,16 @@ const MenuNavigation = ({className}: IMenuNavigationProps) => {
   return (
     <ul className={`inline-flex items-center ${className}`}>
       <li>
-        <a
+        <Link
           className={cn("header-link", {"dark:text-purple-300 text-purple-800": pathname === ERouteConstants.HomePage})}
-          href="#">Home</a>
+          to={ERouteConstants.HomePage}
+        >Home</Link>
       </li>
       <li>
-        <a className="header-link" href="#">About</a>
+        <Link className="header-link" to="#">About</Link>
       </li>
       <li>
-        <a className="header-link" href="#">Contact</a>
+        <Link className="header-link" to="#">Contact</Link>
       </li>
     </ul>
   );

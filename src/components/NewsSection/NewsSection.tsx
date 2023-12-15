@@ -32,7 +32,7 @@ const NewsSection = () => {
     );
   }
 
-  if (data.status === EStatus.error && data.message?.includes("Developer plan")) {
+  if (data.status === EStatus.error && data.code === "corsNotAllowed") {
     setNews(mockData.articles);
 
     return (
