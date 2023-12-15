@@ -23,6 +23,3 @@ tailwind.config-example.js
 *.njsproj
 *.sln
 *.sw?
-
-# Data
-src/data/articles.json

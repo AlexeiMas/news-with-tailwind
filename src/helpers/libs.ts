@@ -76,6 +76,22 @@ export const generateSlug = (title: string, publishedAt: string) => {
 export const scrollToTopPage = (behavior: ScrollBehavior = "smooth") => {
   window.scrollTo({
     top: 0,
+    left: 0,
     behavior,
   });
+};
+
+export const paginateData = <T>(array: T[], pageSize: number = 10) => {
+  const totalDocs = array.length;
+  const totalPages = Math.ceil(array.length / pageSize);
+
+  return {
+    totalDocs,
+    totalPages,
+    getPage(pageNumber: number) {
+      const startIdx = (pageNumber - 1) * pageSize;
+      const endIdx = pageNumber * pageSize;
+      return array.slice(startIdx, endIdx);
+    }
+  };
 };

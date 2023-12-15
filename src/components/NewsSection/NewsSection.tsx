@@ -1,8 +1,9 @@
+import mockData from "@/data/articles.json";
 import posts from "@/data/posts.json";
-import {Pagination, PostCard} from "@/components/NewsSection";
+import {NewsSectionMock, Pagination, PostCard} from "@/components/NewsSection";
 import {useEffect, useId} from "react";
 import {useNews} from "@/helpers/hooks/useNews";
-import {TStatus} from "@/api/newsTypes";
+import {EStatus} from "@/api/newsTypes";
 import {useSearchParams} from "react-router-dom";
 import {useNewsStore} from "@/store/news.store.ts";
 import {ErrorAlert} from "@/components/Alert";
@@ -27,11 +28,23 @@ const NewsSection = () => {
 
   if (isLoading || isFetching || !data) {
     return (
-     <NewsListSkeleton countNews={10} />
+      <NewsListSkeleton countNews={10}/>
     );
   }
 
-  if (data.status === TStatus.error) {
+  if (data.status === EStatus.error && data.message?.includes("Developer plan")) {
+    setNews(mockData.articles);
+
+    return (
+      <NewsSectionMock
+        articles={mockData.articles}
+        page={page}
+        onPageChange={onPageChange}
+      />
+    );
+  }
+
+  if (data.status === EStatus.error) {
     return (
       <ErrorAlert>
         {data.message}

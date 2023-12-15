@@ -1,6 +1,6 @@
 export type TNewsData = {
   articles: TArticles[]
-  status: TStatus
+  status: EStatus
   totalResults: number
   message?: string
 }
@@ -19,7 +19,7 @@ export type TArticles = {
   }
 }
 
-export enum TStatus {
+export enum EStatus {
   ok = "ok",
   error = "error"
 }
